@@ -15,7 +15,7 @@ st.markdown("""
 <style>
 
 .stApp {
-background-image: url("/3d-world-map-with-countries-highlighted_1048-12248.jpg");
+background-image: url("https://github.com/rioo09/Country-Classification-Project/blob/main/3d-rendering-planet-earth.jpg?raw=true");
 background-size: cover;
 background-attachment: fixed;
 }
@@ -32,8 +32,22 @@ padding: 2rem;
 border-radius: 15px;
 }
 
-input {
-background-color: #f5f5f5 !important;
+/* Glass input fields */
+.stNumberInput input {
+background: rgba(255,255,255,0.08) !important;
+backdrop-filter: blur(8px);
+border: 1px solid rgba(255,255,255,0.25) !important;
+border-radius: 10px !important;
+color: white !important;
+}
+
+.stNumberInput button {
+background: rgba(255,255,255,0.15) !important;
+color: white !important;
+}
+
+label {
+color: white !important;
 }
 
 .stButton>button {
@@ -53,11 +67,29 @@ font-size: 28px;
 color: white;
 margin-top: 20px;
 }
+            
+.glass-header {
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.2);
+border-radius: 15px;
+padding: 20px;
+text-align: center;
+font-size: 42px;
+font-weight: 600;
+color: white;
+margin-bottom: 30px;
+}
 
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Country Development Cluster Prediction")
+st.markdown("""
+<div class="glass-header">
+Country Development Cluster Prediction
+</div>
+""", unsafe_allow_html=True)
 
 # load models
 model = joblib.load("gmm_model.pkl")
